@@ -244,4 +244,121 @@ myresult = mycursor.fetchall()
 for x in myresult:
     print(x)"""
 
+# sorting records by alphabetical order
+"""import mysql.connector
+
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="newuser",
+    password="newpassword",
+    database="myapp"
+)
+
+mycursor = mydb.cursor()
+
+sql = "SELECT * FROM customers ORDER BY name"
+
+mycursor.execute(sql)
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+    print(x)"""
+
+# descending order of records
+"""import mysql.connector
+
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="newuser",
+    password="newpassword",
+    database="myapp"
+)
+
+mycursor = mydb.cursor()
+
+sql = "SELECT * FROM customers ORDER BY name DESC"
+
+mycursor.execute(sql)
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+    print(x)"""
+
+# deleting specified records
+"""import mysql.connector
+
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="newuser",
+    password="newpassword",
+    database="myapp"
+)
+
+mycursor = mydb.cursor()
+
+# using DELETE  and WHERE
+sql = "DELETE FROM customers WHERE address = 'Mountain 21'"
+
+mycursor.execute(sql)
+
+mydb.commit()
+
+print(mycursor.rowcount, "record(s) delete")"""
+
+# preventing sql injection when deleting
+
+"""import mysql.connector
+
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="newuser",
+    password="newpassword",
+    database="myapp"
+)
+
+mycursor = mydb.cursor()
+
+sql = "DELETE FROM customers WHERE address = %s"
+adr = ("Yellow Garden 2", )
+
+mycursor.execute(sql, adr)
+
+mydb.commit()
+
+print(mycursor.rowcount, "record(s) delete")"""
+
+# deleting the whole table
+"""import mysql.connector
+
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="newuser",
+    password="newpassword",
+    database="myapp"
+)
+
+mycursor = mydb.cursor()
+
+sql = "DROP TABLE customers"
+
+mycursor.execute(sql)"""
+
+# method for deleting a table with condition that it exists or not
+"""import mysql.connector
+
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="newuser",
+    password="newpassword",
+    database="myapp"
+)
+
+mycursor = mydb.cursor()
+
+# IF EXISTS METHOD to check the existence of the table
+sql = "DROP TABLE IF EXISTS customers"
+
+mycursor.execute(sql)"""
 
